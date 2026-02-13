@@ -45,6 +45,24 @@ def fetch_reddit(subreddit):
             })
 
     return posts
+    
+def is_real_question(title):
+    title_lower = title.lower()
+    
+    # Ignore PR/commit style prefixes
+    if any(title_lower.startswith(p) for p in IGNORE_PREFIXES):
+        return False
+
+    # Ignore very long titles with commas (likely lists)
+    if title.count(",") > 2:
+        return False
+
+    # Keep only titles that contain keywords suggesting a real problem
+    KEYWORDS = ["design", "implement", "build", "optimize", "explain", "system", "algorithm", "ml"]
+    if not any(k in title_lower for k in KEYWORDS):
+        return False
+
+    return True
 
 def fetch_github_discussions():
     url = "https://api.github.com/search/issues?q=interview+system+design+ml+in:title&sort=updated&order=desc&per_page=10"
@@ -84,7 +102,10 @@ def append_to_problems(trending_posts, problems_data):
     for post in trending_posts:
         title = post["title"].strip()
         category = categorize_title(title)
-
+        
+    if not is_real_question(title):
+        continue #skip non-question titles
+        
         # Avoid duplicates
         if title not in problems_data.get(category, []):
             problems_data.setdefault(category, []).append(title)
