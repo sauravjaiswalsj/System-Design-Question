@@ -25,7 +25,13 @@ jobs:
           
       - name: Install dependencies
         run: pip install -r requirements.txt
-        
+              
+      - name: Fetch latest trending interview posts
+        run: python fetch_and_update_problems.py
+
+      - name: Generate daily problem
+        run: python generate_problem.py
+
       - name: Run generator
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -33,8 +39,7 @@ jobs:
         
       - name: Update README
         run: python generate_readme.py
-
-
+        
       - name: Commit and push changes
         run: |
           git config --global user.name "github-actions[bot]"
