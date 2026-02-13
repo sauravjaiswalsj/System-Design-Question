@@ -41,14 +41,25 @@ jobs:
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-          git add interviews/
-
-          # Commit only if there are changes
+      
+          # Stage all files that may have changed
+          git add interviews/ problems.json latest_interview_trends.json README.md
+      
+          # Check if there are staged changes
           if ! git diff --staged --quiet; then
+            # Commit the changes
             git commit -m "Add daily interview problem $(date -u)"
-            git pull --rebase origin main
+      
+            # Pull latest changes safely (rebase)
+            git fetch origin main
+            git rebase origin/main || {
+                echo "Rebase failed, aborting rebase and continuing"
+                git rebase --abort
+            }
+      
+            # Push to remote
             git push origin main
           else
             echo "No changes to commit"
           fi
+
