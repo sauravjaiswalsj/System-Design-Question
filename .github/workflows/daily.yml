@@ -53,13 +53,19 @@ jobs:
             # Pull latest changes safely (rebase)
             git fetch origin main
             git rebase origin/main || {
-                echo "Rebase failed, aborting rebase and continuing"
+                echo "Rebase failed, aborting rebase and continuing."
                 git rebase --abort
             }
       
             # Push to remote
             git push origin main
           else
-            echo "No changes to commit"
+            echo "No changes to commit."
           fi
+
+      - name: Deploy Github Pages,
+        uses: peaceiris/action-gh-pages@v6,
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
 
