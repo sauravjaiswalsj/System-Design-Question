@@ -1,0 +1,106 @@
+import requests
+import json
+import os
+from datetime import datetime
+
+OUTPUT_FILE = "latest_interview_trends.json"
+PROBLEMS_FILE = "problems.json"
+INTERVIEW_CATEGORIES = ["system_design", "dsa"]  # default categories
+
+def load_problems():
+    if os.path.exists(PROBLEMS_FILE):
+        with open(PROBLEMS_FILE, "r") as f:
+            return json.load(f)
+    else:
+        return {cat: [] for cat in INTERVIEW_CATEGORIES}
+
+def save_problems(data):
+    with open(PROBLEMS_FILE, "w") as f:
+        json.dump(data, f, indent=2)
+
+def fetch_reddit(subreddit):
+    url = f"https://www.reddit.com/r/{subreddit}.json?limit=10"
+    headers = {"User-Agent": "interview-tracker-bot"}
+
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        print(f"Reddit error: {response.status_code}")
+        return []
+
+    data = response.json()
+    posts = []
+
+    for post in data["data"]["children"]:
+        title = post["data"]["title"]
+        link = "https://reddit.com" + post["data"]["permalink"]
+
+        if "interview" in title.lower():
+            posts.append({
+                "title": title,
+                "source": f"reddit/{subreddit}",
+                "url": link
+            })
+
+    return posts
+
+def fetch_github_discussions():
+    url = "https://api.github.com/search/issues?q=interview+system+design+in:title&sort=updated&order=desc&per_page=10"
+
+    response = requests.get(url)
+    if response.status_code != 200:
+        print(f"GitHub API error: {response.status_code}")
+        return []
+
+    data = response.json()
+    results = []
+
+    for item in data.get("items", []):
+        results.append({
+            "title": item["title"],
+            "source": "github",
+            "url": item["html_url"]
+        })
+
+    return results
+
+def append_to_problems(trending_posts, problems_data):
+    for post in trending_posts:
+        title = post["title"]
+
+        # Simple categorization: system_design if contains 'design', else dsa
+        category = "system_design" if "design" in title.lower() else "dsa"
+
+        # Avoid duplicates
+        if title not in problems_data.get(category, []):
+            problems_data.setdefault(category, []).append(title)
+
+    return problems_data
+
+def main():
+    today = datetime.utcnow().strftime("%Y-%m-%d")
+
+    reddit_leetcode = fetch_reddit("leetcode")
+    reddit_systemdesign = fetch_reddit("systemdesign")
+    github_results = fetch_github_discussions()
+
+    combined = reddit_leetcode + reddit_systemdesign + github_results
+
+    # Save trending posts
+    with open(OUTPUT_FILE, "w") as f:
+        json.dump({"date": today, "results": combined}, f, indent=2)
+
+    print(f"✅ Saved {len(combined)} trending interview discussions to {OUTPUT_FILE}")
+
+    # Load existing problems.json
+    problems_data = load_problems()
+
+    # Append new problems from trending posts
+    updated_problems = append_to_problems(combined, problems_data)
+
+    # Save updated problems.json
+    save_problems(updated_problems)
+
+    print(f"✅ Updated {PROBLEMS_FILE} with new trending problems.")
+
+if __name__ == "__main__":
+    main()
