@@ -6,16 +6,23 @@ from datetime import datetime
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-PROBLEMS = [
-    "Design a URL Shortener like Bitly",
-    "Design Twitter",
-    "Design Netflix",
-    "Design Uber",
-    "Design WhatsApp",
-    "Design Distributed Cache",
-    "Design YouTube",
-    "Design Instagram"
-]
+PROBLEMS_FILE = "problems.json"
+INTERVIEWS_DIR = "interviews"
+
+def load_problems():
+    """Load all problem titles from problems.json."""
+    if not os.path.exists(PROBLEMS_FILE):
+        raise FileNotFoundError(f"{PROBLEMS_FILE} not found")
+
+    with open(PROBLEMS_FILE, "r") as f:
+        data = json.load(f)
+
+    # Flatten all categories into a single list of (category, problem) tuples
+    all_problems = []
+    for category, problems in data.items():
+        for problem in problems:
+            all_problems.append((category, problem))
+    return all_problems
 
 def generate_outline(problem):
     prompt = f"""
@@ -43,7 +50,6 @@ Be concise but technical.
             "Content-Type": "application/json"
         },
         json={
-            "model": "llama-3.1-8b-instant",
             "messages": [
                 {"role": "user", "content": prompt}
             ],
@@ -51,16 +57,11 @@ Be concise but technical.
         }
     )
 
-    # Check HTTP response
     if response.status_code != 200:
         raise Exception(f"API Error {response.status_code}: {response.text}")
 
     data = response.json()
-
-    # Print data for debugging (first run)
-    print("API response:", data)
-
-    # Some free AI APIs return 'output_text' or 'result' instead of 'choices'
+    # Adjust to your API response keys
     if "choices" in data:
         return data["choices"][0]["message"]["content"]
     elif "output_text" in data:
@@ -72,20 +73,31 @@ Be concise but technical.
 
 
 def main():
-    problem = random.choice(PROBLEMS)
+    all_problems = load_problems()
+    if not all_problems:
+        print("No problems found in JSON!")
+        return
+
+    # Pick a random problem from JSON
+    category, problem = random.choice(all_problems)
     today = datetime.utcnow().strftime("%Y-%m-%d")
 
     content = generate_outline(problem)
 
-    folder = "interviews/system_design"
+    folder = os.path.join(INTERVIEWS_DIR, category)
     os.makedirs(folder, exist_ok=True)
 
+    # Create a safe filename
     filename = f"{today}-{problem.replace(' ', '-').lower()}.md"
 
     with open(os.path.join(folder, filename), "w") as f:
         f.write(f"# {problem}\n\n")
+        f.write(f"Category: {category}\n")
         f.write(f"Date: {today}\n\n")
         f.write(content)
+
+    print(f"✅ Generated {filename} in {folder}")
+
 
 if __name__ == "__main__":
     main()
