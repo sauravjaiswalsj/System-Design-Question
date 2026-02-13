@@ -1,0 +1,12 @@
+site_name: Interview Problem Hub
+site_description: Daily DSA, System Design, and ML System Design Problems
+theme:
+  name: material
+
+nav:
+  - Home: index.md
+  - System Design: system_design.md
+  - ML System Design: ml_system_design.md
+  - DSA: dsa.md
+
+repo_url: https://github.com/sauravjaiswalsj/System-Design-Question
