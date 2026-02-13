@@ -27,5 +27,9 @@
     "Word Ladder",
     "Top K Frequent Elements",
     "Trapping Rain Water"
+  ],
+  "ml_system_design": [
+    "Add ML system design interview prep repository structure",
+    "Add jscheatsheet, toughest interview question, oops notes, system design notes, 270 ml projects, java for beginner"
   ]
 }
