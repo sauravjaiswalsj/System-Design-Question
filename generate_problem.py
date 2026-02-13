@@ -36,7 +36,6 @@ Include:
 
 Be concise but technical.
 """
-
     response = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
         headers={
@@ -52,7 +51,25 @@ Be concise but technical.
         }
     )
 
-    return response.json()["choices"][0]["message"]["content"]
+    # Check HTTP response
+    if response.status_code != 200:
+        raise Exception(f"API Error {response.status_code}: {response.text}")
+
+    data = response.json()
+
+    # Print data for debugging (first run)
+    print("API response:", data)
+
+    # Some free AI APIs return 'output_text' or 'result' instead of 'choices'
+    if "choices" in data:
+        return data["choices"][0]["message"]["content"]
+    elif "output_text" in data:
+        return data["output_text"]
+    elif "result" in data:
+        return data["result"]
+    else:
+        raise KeyError(f"Cannot find expected output in API response: {data}")
+
 
 def main():
     problem = random.choice(PROBLEMS)
