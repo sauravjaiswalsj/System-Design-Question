@@ -3,6 +3,14 @@ import json
 import random
 import os
 from datetime import datetime
+import re
+
+def sanitize_filename(title):
+    # Lowercase, replace spaces with -, remove anything except a-z, 0-9, and hyphen
+    filename = title.lower()
+    filename = filename.replace(" ", "-")
+    filename = re.sub(r"[^a-z0-9\-]", "", filename)
+    return filename
 
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
@@ -97,7 +105,7 @@ def main():
     os.makedirs(folder, exist_ok=True)
 
     # Create a safe filename
-    filename = f"{today}-{problem.replace(' ', '-').lower()}.md"
+    filename = f"{today}-{sanitize_filename(problem)}.md"
 
     with open(os.path.join(folder, filename), "w") as f:
         f.write(f"# {problem}\n\n")
