@@ -8,7 +8,17 @@
     "Design Chat System",
     "Design File Storage System",
     "Design Notification System",
-    "Design Search Autocomplete"
+    "Design Search Autocomplete",
+    "Add ML system design interview prep repository structure",
+    "Added prompts for technical interview & skill gap coach and Explain Code / System Design Clearly",
+    "feat: new library System Design Interview Props",
+    "Add IntelliRecruit AI end-to-end interview system design document",
+    "Add structured memory for system design interviews and public example\u2026",
+    "Fix evaluation timeout for long system design interviews",
+    "feat: new library FR-NFR system design interview",
+    "Build system design interview practice tool",
+    "feat: Add mock interview, system design, and coding patterns features",
+    "Created basic System Design Round UI in mock interview"
   ],
   "dsa": [
     "LRU Cache",
