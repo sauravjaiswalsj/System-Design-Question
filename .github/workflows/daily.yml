@@ -29,9 +29,6 @@ jobs:
       - name: Fetch latest trending interview posts
         run: python fetch_and_update_problems.py
 
-      - name: Generate daily problem
-        run: python generate_problem.py
-
       - name: Run generator
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
