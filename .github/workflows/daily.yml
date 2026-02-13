@@ -4,6 +4,9 @@ on:
   schedule:
     - cron: '24 1 * * *'
   workflow_dispatch:
+  
+permissions:
+  contents: write
 
 jobs:
   generate:
