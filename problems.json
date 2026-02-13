@@ -1,0 +1,21 @@
+{
+  "system_design": [
+    "Design URL Shortener",
+    "Design Twitter",
+    "Design Netflix",
+    "Design Rate Limiter",
+    "Design Distributed Cache",
+    "Design Chat System",
+    "Design File Storage System",
+    "Design Notification System",
+    "Design Search Autocomplete"
+  ],
+  "dsa": [
+    "LRU Cache",
+    "Median of Two Sorted Arrays",
+    "Merge K Sorted Lists",
+    "Word Ladder",
+    "Top K Frequent Elements",
+    "Trapping Rain Water"
+  ]
+}
