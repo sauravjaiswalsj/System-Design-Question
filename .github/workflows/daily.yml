@@ -2,9 +2,9 @@ name: Daily Interview Problem
 
 on:
   schedule:
-    - cron: '24 1 * * *'
+    - cron: '30 1 * * *'   # 01:24 UTC daily
   workflow_dispatch:
-  
+
 permissions:
   contents: write
 
@@ -13,21 +13,31 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0   # Important for rebase
 
-      - uses: actions/setup-python@v5
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
       - name: Run generator
         run: python generate_problem.py
 
-      - name: Commit changes
+      - name: Commit and push changes
         run: |
-          git config --global user.name "sauravjaiswalsj"
-          git config --global user.email "sauravjaiswal999@gmail.com"
-          git add interviews/
-          git commit -m "Add daily interview problem $(date)" || exit 0
-          git push
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-  
+          git add interviews/
+
+          # Commit only if there are changes
+          if ! git diff --staged --quiet; then
+            git commit -m "Add daily interview problem $(date -u)"
+            git pull --rebase origin main
+            git push origin main
+          else
+            echo "No changes to commit"
+          fi
