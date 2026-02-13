@@ -2,7 +2,7 @@ name: Daily Interview Problem
 
 on:
   schedule:
-    - cron: '0 5 * * *'
+    - cron: '24 1 * * *'
   workflow_dispatch:
 
 jobs:
