@@ -1,0 +1,30 @@
+name: Daily Interview Problem
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Run generator
+        run: python generate_problem.py
+
+      - name: Commit changes
+        run: |
+          git config --global user.name "sauravjaiswalsj"
+          git config --global user.email "sauravjaiswal999@gmail.com"
+          git add interviews/
+          git commit -m "Add daily interview problem $(date)" || exit 0
+          git push
+
+  
