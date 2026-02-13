@@ -1,82 +1,74 @@
+import requests
 import json
 import random
 import os
 from datetime import datetime
-import re
 
-BASE_DIR = "interviews"
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
 
-def slugify(text):
-    return re.sub(r'[^a-z0-9]+', '-', text.lower()).strip('-')
+PROBLEMS = [
+    "Design a URL Shortener like Bitly",
+    "Design Twitter",
+    "Design Netflix",
+    "Design Uber",
+    "Design WhatsApp",
+    "Design Distributed Cache",
+    "Design YouTube",
+    "Design Instagram"
+]
 
-def load_problems():
-    with open("problems.json") as f:
-        return json.load(f)
+def generate_outline(problem):
+    prompt = f"""
+You are a senior FAANG system design interviewer.
 
-def generate_markdown(problem, category):
-    today = datetime.utcnow().strftime("%Y-%m-%d")
+Generate a structured system design discussion for:
 
-    return f"""# {problem}
+{problem}
 
-**Category:** {category}  
-**Date:** {today}
+Include:
 
----
+1. Requirements (Functional + Non-functional)
+2. High-Level Architecture
+3. Database Design
+4. Scaling Strategy
+5. Bottlenecks
+6. Trade-offs
 
-## 1. Requirements Clarification
-
-- Functional requirements:
-- Non-functional requirements:
-- Constraints:
-
----
-
-## 2. High-Level Design
-
-- Core components:
-- APIs:
-- Data flow:
-
----
-
-## 3. Deep Dive
-
-- Database design:
-- Scaling strategy:
-- Caching:
-- Trade-offs:
-
----
-
-## 4. Bottlenecks & Improvements
-
-- 
-
----
-
-## 5. Follow-up Questions
-
-- 
+Be concise but technical.
 """
 
+    response = requests.post(
+        "https://api.groq.com/openai/v1/chat/completions",
+        headers={
+            "Authorization": f"Bearer {GROQ_API_KEY}",
+            "Content-Type": "application/json"
+        },
+        json={
+            "model": "llama3-8b-8192",
+            "messages": [
+                {"role": "user", "content": prompt}
+            ],
+            "temperature": 0.7
+        }
+    )
+
+    return response.json()["choices"][0]["message"]["content"]
+
 def main():
-    problems = load_problems()
-    category = random.choice(list(problems.keys()))
-    problem = random.choice(problems[category])
-
+    problem = random.choice(PROBLEMS)
     today = datetime.utcnow().strftime("%Y-%m-%d")
-    slug = slugify(problem)
 
-    folder = os.path.join(BASE_DIR, category)
+    content = generate_outline(problem)
+
+    folder = "interviews/system_design"
     os.makedirs(folder, exist_ok=True)
 
-    filename = f"{today}-{slug}.md"
-    filepath = os.path.join(folder, filename)
+    filename = f"{today}-{problem.replace(' ', '-').lower()}.md"
 
-    if not os.path.exists(filepath):
-        content = generate_markdown(problem, category)
-        with open(filepath, "w") as f:
-            f.write(content)
+    with open(os.path.join(folder, filename), "w") as f:
+        f.write(f"# {problem}\n\n")
+        f.write(f"Date: {today}\n\n")
+        f.write(content)
 
 if __name__ == "__main__":
     main()
