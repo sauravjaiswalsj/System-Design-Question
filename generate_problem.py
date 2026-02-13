@@ -68,7 +68,7 @@ Also, explain the {problem} solution using the first principle of system design.
 
     data = response.json()
     # Print data for debugging (first run) 
-    print("API response:", data)
+    #print("API response:", data)
     
     # Adjust to your API response keys
     if "choices" in data:
