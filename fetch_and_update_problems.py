@@ -5,7 +5,8 @@ from datetime import datetime
 
 OUTPUT_FILE = "latest_interview_trends.json"
 PROBLEMS_FILE = "problems.json"
-INTERVIEW_CATEGORIES = ["system_design", "dsa"]  # default categories
+INTERVIEW_CATEGORIES = ["system_design", "dsa", "ml_system_design"]
+IGNORE_PREFIXES = ["feat:", "fix:", "add:", "merge:", "chore:", "docs:", "refactor:"]
 
 def load_problems():
     if os.path.exists(PROBLEMS_FILE):
@@ -31,10 +32,12 @@ def fetch_reddit(subreddit):
     posts = []
 
     for post in data["data"]["children"]:
-        title = post["data"]["title"]
+        title = post["data"]["title"].strip()
         link = "https://reddit.com" + post["data"]["permalink"]
 
-        if "interview" in title.lower():
+        # Include posts mentioning interview, design, or ML
+        if (any(k in title.lower() for k in ["interview", "design", "ml", "machine learning", "deep learning"])) \
+           and not any(title.lower().startswith(p) for p in IGNORE_PREFIXES):
             posts.append({
                 "title": title,
                 "source": f"reddit/{subreddit}",
@@ -44,7 +47,7 @@ def fetch_reddit(subreddit):
     return posts
 
 def fetch_github_discussions():
-    url = "https://api.github.com/search/issues?q=interview+system+design+in:title&sort=updated&order=desc&per_page=10"
+    url = "https://api.github.com/search/issues?q=interview+system+design+ml+in:title&sort=updated&order=desc&per_page=10"
 
     response = requests.get(url)
     if response.status_code != 200:
@@ -55,20 +58,32 @@ def fetch_github_discussions():
     results = []
 
     for item in data.get("items", []):
-        results.append({
-            "title": item["title"],
-            "source": "github",
-            "url": item["html_url"]
-        })
+        title = item["title"].strip()
+
+        # Filter out PR/commit style titles
+        if (any(k in title.lower() for k in ["interview", "design", "ml", "machine learning", "deep learning"])) \
+           and not any(title.lower().startswith(p) for p in IGNORE_PREFIXES):
+            results.append({
+                "title": title,
+                "source": "github",
+                "url": item["html_url"]
+            })
 
     return results
 
+def categorize_title(title):
+    lower = title.lower()
+    if any(k in lower for k in ["ml", "machine learning", "deep learning"]):
+        return "ml_system_design"
+    elif "design" in lower:
+        return "system_design"
+    else:
+        return "dsa"
+
 def append_to_problems(trending_posts, problems_data):
     for post in trending_posts:
-        title = post["title"]
-
-        # Simple categorization: system_design if contains 'design', else dsa
-        category = "system_design" if "design" in title.lower() else "dsa"
+        title = post["title"].strip()
+        category = categorize_title(title)
 
         # Avoid duplicates
         if title not in problems_data.get(category, []):
@@ -81,9 +96,10 @@ def main():
 
     reddit_leetcode = fetch_reddit("leetcode")
     reddit_systemdesign = fetch_reddit("systemdesign")
+    reddit_ml = fetch_reddit("MachineLearning")
     github_results = fetch_github_discussions()
 
-    combined = reddit_leetcode + reddit_systemdesign + github_results
+    combined = reddit_leetcode + reddit_systemdesign + reddit_ml + github_results
 
     # Save trending posts
     with open(OUTPUT_FILE, "w") as f:
@@ -94,7 +110,7 @@ def main():
     # Load existing problems.json
     problems_data = load_problems()
 
-    # Append new problems from trending posts
+    # Append new filtered problems
     updated_problems = append_to_problems(combined, problems_data)
 
     # Save updated problems.json
