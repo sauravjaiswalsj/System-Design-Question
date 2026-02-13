@@ -26,7 +26,7 @@ def load_problems():
 
 def generate_outline(problem):
     prompt = f"""
-You are a senior FAANG system design interviewer.
+You are a principal FAANG system design interviewer.
 
 Generate a structured system design discussion for:
 
@@ -41,8 +41,13 @@ Include:
 5. Bottlenecks
 6. Trade-offs
 
-Be concise but technical.
+Be concise and technical. Follow proper system design principles and include relevant learning links if possible.
+
+Also, explain the {problem} solution using the first principle of system design.
 """
+    if not GROQ_API_KEY:
+        raise ValueError("GROQ_API_KEY is not set! Add it as a GitHub secret.")
+
     response = requests.post(
         "https://api.groq.com/openai/v1/chat/completions",
         headers={
@@ -50,6 +55,7 @@ Be concise but technical.
             "Content-Type": "application/json"
         },
         json={
+            "model": "llama-3.1-8b-instant",
             "messages": [
                 {"role": "user", "content": prompt}
             ],
@@ -61,6 +67,9 @@ Be concise but technical.
         raise Exception(f"API Error {response.status_code}: {response.text}")
 
     data = response.json()
+    # Print data for debugging (first run) 
+    print("API response:", data)
+    
     # Adjust to your API response keys
     if "choices" in data:
         return data["choices"][0]["message"]["content"]
