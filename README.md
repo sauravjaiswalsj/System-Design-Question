@@ -1,3 +1,5 @@
+[![Daily Interview Problem](https://github.com/sauravjaiswalsj/System-Design-Question/actions/workflows/daily.yml/badge.svg)](https://github.com/sauravjaiswalsj/System-Design-Question/actions/workflows/daily.yml)
+
 # Interview Preparation Repository
 
 This repository contains curated FAANG-level interview problems (System Design + DSA).
