@@ -103,8 +103,8 @@ def append_to_problems(trending_posts, problems_data):
         title = post["title"].strip()
         category = categorize_title(title)
         
-    if not is_real_question(title):
-        continue #skip non-question titles
+        if not is_real_question(title):
+            continue #skip non-question titles
         
         # Avoid duplicates
         if title not in problems_data.get(category, []):
