@@ -1,5 +1,3 @@
-[![Daily Interview Problem](https://github.com/sauravjaiswalsj/System-Design-Question/actions/workflows/daily.yml/badge.svg)](https://github.com/sauravjaiswalsj/System-Design-Question/actions/workflows/daily.yml)
-
 # Interview Preparation Repository
 
 This repository contains curated FAANG-level interview problems (System Design + DSA).
@@ -7,6 +5,7 @@ This repository contains curated FAANG-level interview problems (System Design +
 ## Dsa
 
 - [2026 02 13 Merge K Sorted Lists](interviews/dsa/2026-02-13-merge-k-sorted-lists.md)
+- [2026 02 15 Merge K Sorted Lists](interviews/dsa/2026-02-15-merge-k-sorted-lists.md)
 
 ## System Design
 
