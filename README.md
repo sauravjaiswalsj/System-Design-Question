@@ -13,3 +13,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 02 13 New Library System Design Interview Props](interviews/system_design/2026-02-13-new-library-system-design-interview-props.md)
 - [2026 02 14 Design Distributed Cache](interviews/system_design/2026-02-14-design-distributed-cache.md)
 - [2026 02 14 Design Url Shortener](interviews/system_design/2026-02-14-design-url-shortener.md)
+- [2026 02 16 Build System Design Interview Practice Tool](interviews/system_design/2026-02-16-build-system-design-interview-practice-tool.md)
