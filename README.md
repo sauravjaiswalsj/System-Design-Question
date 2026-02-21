@@ -18,3 +18,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 02 18 Feat New Library Fr Nfr System Design Interview](interviews/system_design/2026-02-18-feat-new-library-fr-nfr-system-design-interview.md)
 - [2026 02 19 Design File Storage System](interviews/system_design/2026-02-19-design-file-storage-system.md)
 - [2026 02 20 Added Prompts For Technical Interview  Skill Gap Coach And Explain Code  System Design Clearly](interviews/system_design/2026-02-20-added-prompts-for-technical-interview--skill-gap-coach-and-explain-code--system-design-clearly.md)
+- [2026 02 21 Feat New Library Fr Nfr System Design Interview](interviews/system_design/2026-02-21-feat-new-library-fr-nfr-system-design-interview.md)
