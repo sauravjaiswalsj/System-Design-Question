@@ -8,6 +8,10 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 02 15 Merge K Sorted Lists](interviews/dsa/2026-02-15-merge-k-sorted-lists.md)
 - [2026 02 24 Top K Frequent Elements](interviews/dsa/2026-02-24-top-k-frequent-elements.md)
 
+## Ml System Design
+
+- [2026 02 25 Add Jscheatsheet Toughest Interview Question Oops Notes System Design Notes 270 Ml Projects Java For Beginner](interviews/ml_system_design/2026-02-25-add-jscheatsheet-toughest-interview-question-oops-notes-system-design-notes-270-ml-projects-java-for-beginner.md)
+
 ## System Design
 
 - [2026 02 13 Design Twitter](interviews/system_design/2026-02-13-design-twitter.md)
