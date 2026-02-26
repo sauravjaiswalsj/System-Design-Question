@@ -1,6 +1,11 @@
 {
-  "date": "2026-02-25",
+  "date": "2026-02-26",
   "results": [
+    {
+      "title": "Flesh out additional interview topics: math, advanced algorithms, ML, databases, competitive coding, and system design",
+      "source": "github",
+      "url": "https://github.com/ianlintner/swe_interview_book/pull/6"
+    },
     {
       "title": "Add jscheatsheet, toughest interview question, oops notes, system design notes, 270 ml projects, java for beginner",
       "source": "github",
