@@ -28,3 +28,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 02 22 Added Prompts For Technical Interview  Skill Gap Coach And Explain Code  System Design Clearly](interviews/system_design/2026-02-22-added-prompts-for-technical-interview--skill-gap-coach-and-explain-code--system-design-clearly.md)
 - [2026 02 23 Design Netflix](interviews/system_design/2026-02-23-design-netflix.md)
 - [2026 02 26 Added Prompts For Technical Interview  Skill Gap Coach And Explain Code  System Design Clearly](interviews/system_design/2026-02-26-added-prompts-for-technical-interview--skill-gap-coach-and-explain-code--system-design-clearly.md)
+- [2026 02 28 Design Chat System](interviews/system_design/2026-02-28-design-chat-system.md)
