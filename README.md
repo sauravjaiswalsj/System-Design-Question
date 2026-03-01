@@ -29,3 +29,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 02 23 Design Netflix](interviews/system_design/2026-02-23-design-netflix.md)
 - [2026 02 26 Added Prompts For Technical Interview  Skill Gap Coach And Explain Code  System Design Clearly](interviews/system_design/2026-02-26-added-prompts-for-technical-interview--skill-gap-coach-and-explain-code--system-design-clearly.md)
 - [2026 02 28 Design Chat System](interviews/system_design/2026-02-28-design-chat-system.md)
+- [2026 03 01 Fix Evaluation Timeout For Long System Design Interviews](interviews/system_design/2026-03-01-fix-evaluation-timeout-for-long-system-design-interviews.md)
