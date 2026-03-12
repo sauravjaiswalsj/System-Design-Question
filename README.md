@@ -16,6 +16,7 @@ This repository contains curated FAANG-level interview problems (System Design +
 
 - [2026 02 25 Add Jscheatsheet Toughest Interview Question Oops Notes System Design Notes 270 Ml Projects Java For Beginner](interviews/ml_system_design/2026-02-25-add-jscheatsheet-toughest-interview-question-oops-notes-system-design-notes-270-ml-projects-java-for-beginner.md)
 - [2026 03 11 Add Ml System Design Interview Prep Repository Structure](interviews/ml_system_design/2026-03-11-add-ml-system-design-interview-prep-repository-structure.md)
+- [2026 03 12 Add Jscheatsheet Toughest Interview Question Oops Notes System Design Notes 270 Ml Projects Java For Beginner](interviews/ml_system_design/2026-03-12-add-jscheatsheet-toughest-interview-question-oops-notes-system-design-notes-270-ml-projects-java-for-beginner.md)
 
 ## System Design
 
