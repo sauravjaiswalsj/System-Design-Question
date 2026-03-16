@@ -44,3 +44,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 03 13 Feat Add Mock Interview System Design And Coding Patterns Features](interviews/system_design/2026-03-13-feat-add-mock-interview-system-design-and-coding-patterns-features.md)
 - [2026 03 14 Add Intellirecruit Ai End To End Interview System Design Document](interviews/system_design/2026-03-14-add-intellirecruit-ai-end-to-end-interview-system-design-document.md)
 - [2026 03 15 Design Distributed Cache](interviews/system_design/2026-03-15-design-distributed-cache.md)
+- [2026 03 16 Design Search Autocomplete](interviews/system_design/2026-03-16-design-search-autocomplete.md)
