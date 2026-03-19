@@ -47,3 +47,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 03 15 Design Distributed Cache](interviews/system_design/2026-03-15-design-distributed-cache.md)
 - [2026 03 16 Design Search Autocomplete](interviews/system_design/2026-03-16-design-search-autocomplete.md)
 - [2026 03 17 Design Search Autocomplete](interviews/system_design/2026-03-17-design-search-autocomplete.md)
+- [2026 03 19 Design Chat System](interviews/system_design/2026-03-19-design-chat-system.md)
