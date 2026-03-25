@@ -53,3 +53,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 03 19 Design Chat System](interviews/system_design/2026-03-19-design-chat-system.md)
 - [2026 03 21 Added Prompts For Technical Interview  Skill Gap Coach And Explain Code  System Design Clearly](interviews/system_design/2026-03-21-added-prompts-for-technical-interview--skill-gap-coach-and-explain-code--system-design-clearly.md)
 - [2026 03 24 Design Search Autocomplete](interviews/system_design/2026-03-24-design-search-autocomplete.md)
+- [2026 03 25 Created Basic System Design Round Ui In Mock Interview](interviews/system_design/2026-03-25-created-basic-system-design-round-ui-in-mock-interview.md)
