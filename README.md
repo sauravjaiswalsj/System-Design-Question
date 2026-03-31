@@ -59,3 +59,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 03 25 Created Basic System Design Round Ui In Mock Interview](interviews/system_design/2026-03-25-created-basic-system-design-round-ui-in-mock-interview.md)
 - [2026 03 28 Feat New Library System Design Interview Props](interviews/system_design/2026-03-28-feat-new-library-system-design-interview-props.md)
 - [2026 03 30 Design Search Autocomplete](interviews/system_design/2026-03-30-design-search-autocomplete.md)
+- [2026 03 31 Feat Add Mock Interview System Design And Coding Patterns Features](interviews/system_design/2026-03-31-feat-add-mock-interview-system-design-and-coding-patterns-features.md)
