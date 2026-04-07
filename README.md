@@ -66,3 +66,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 04 01 Design Netflix](interviews/system_design/2026-04-01-design-netflix.md)
 - [2026 04 03 Feat New Library System Design Interview Props](interviews/system_design/2026-04-03-feat-new-library-system-design-interview-props.md)
 - [2026 04 04 Design Distributed Cache](interviews/system_design/2026-04-04-design-distributed-cache.md)
+- [2026 04 07 Design Twitter](interviews/system_design/2026-04-07-design-twitter.md)
