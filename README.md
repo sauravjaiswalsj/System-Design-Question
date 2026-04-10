@@ -69,3 +69,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 04 04 Design Distributed Cache](interviews/system_design/2026-04-04-design-distributed-cache.md)
 - [2026 04 07 Design Twitter](interviews/system_design/2026-04-07-design-twitter.md)
 - [2026 04 08 Fix Evaluation Timeout For Long System Design Interviews](interviews/system_design/2026-04-08-fix-evaluation-timeout-for-long-system-design-interviews.md)
+- [2026 04 10 Add Structured Memory For System Design Interviews And Public Example](interviews/system_design/2026-04-10-add-structured-memory-for-system-design-interviews-and-public-example.md)
