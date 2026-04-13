@@ -72,3 +72,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 04 10 Add Structured Memory For System Design Interviews And Public Example](interviews/system_design/2026-04-10-add-structured-memory-for-system-design-interviews-and-public-example.md)
 - [2026 04 11 Add Intellirecruit Ai End To End Interview System Design Document](interviews/system_design/2026-04-11-add-intellirecruit-ai-end-to-end-interview-system-design-document.md)
 - [2026 04 12 Add Intellirecruit Ai End To End Interview System Design Document](interviews/system_design/2026-04-12-add-intellirecruit-ai-end-to-end-interview-system-design-document.md)
+- [2026 04 13 Created Basic System Design Round Ui In Mock Interview](interviews/system_design/2026-04-13-created-basic-system-design-round-ui-in-mock-interview.md)
