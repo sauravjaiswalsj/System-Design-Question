@@ -76,3 +76,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 04 13 Created Basic System Design Round Ui In Mock Interview](interviews/system_design/2026-04-13-created-basic-system-design-round-ui-in-mock-interview.md)
 - [2026 04 14 Build System Design Interview Practice Tool](interviews/system_design/2026-04-14-build-system-design-interview-practice-tool.md)
 - [2026 04 15 Feat Add Mock Interview System Design And Coding Patterns Features](interviews/system_design/2026-04-15-feat-add-mock-interview-system-design-and-coding-patterns-features.md)
+- [2026 04 17 Design Netflix](interviews/system_design/2026-04-17-design-netflix.md)
