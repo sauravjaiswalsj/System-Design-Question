@@ -79,3 +79,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 04 15 Feat Add Mock Interview System Design And Coding Patterns Features](interviews/system_design/2026-04-15-feat-add-mock-interview-system-design-and-coding-patterns-features.md)
 - [2026 04 17 Design Netflix](interviews/system_design/2026-04-17-design-netflix.md)
 - [2026 04 19 Feat Add Mock Interview System Design And Coding Patterns Features](interviews/system_design/2026-04-19-feat-add-mock-interview-system-design-and-coding-patterns-features.md)
+- [2026 04 20 Design Search Autocomplete](interviews/system_design/2026-04-20-design-search-autocomplete.md)
