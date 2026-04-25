@@ -1,6 +1,11 @@
 {
-  "date": "2026-04-24",
+  "date": "2026-04-25",
   "results": [
+    {
+      "title": "Practical Resources for System Design and ML interview Questions (repo+website)",
+      "source": "github",
+      "url": "https://github.com/alirezadir/Machine-Learning-Interviews/issues/24"
+    },
     {
       "title": "Practical Resources for System Design and ML Interview Questions (repo+website)",
       "source": "github",
@@ -20,11 +25,6 @@
       "title": "Practical Resources for System Design and ML Interview Questions (repo+website)",
       "source": "github",
       "url": "https://github.com/ashishps1/awesome-system-design-resources/issues/48"
-    },
-    {
-      "title": "Practical Resources for System Design and ML interview Questions (repo+website)",
-      "source": "github",
-      "url": "https://github.com/alirezadir/Machine-Learning-Interviews/issues/24"
     },
     {
       "title": "Flesh out additional interview topics: math, advanced algorithms, ML, databases, competitive coding, and system design",
