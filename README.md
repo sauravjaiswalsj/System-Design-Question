@@ -86,3 +86,4 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 04 23 Design File Storage System](interviews/system_design/2026-04-23-design-file-storage-system.md)
 - [2026 04 25 Design Url Shortener](interviews/system_design/2026-04-25-design-url-shortener.md)
 - [2026 04 26 Design Chat System](interviews/system_design/2026-04-26-design-chat-system.md)
+- [2026 04 27 Design Rate Limiter](interviews/system_design/2026-04-27-design-rate-limiter.md)
