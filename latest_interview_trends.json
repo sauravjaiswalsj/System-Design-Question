@@ -1,5 +1,5 @@
 {
-  "date": "2026-04-27",
+  "date": "2026-04-28",
   "results": [
     {
       "title": "Practical Resources for System Design and ML interview Questions (repo+website)",
@@ -25,16 +25,6 @@
       "title": "Practical Resources for System Design and ML Interview Questions (repo+website)",
       "source": "github",
       "url": "https://github.com/ashishps1/awesome-system-design-resources/issues/48"
-    },
-    {
-      "title": "Flesh out additional interview topics: math, advanced algorithms, ML, databases, competitive coding, and system design",
-      "source": "github",
-      "url": "https://github.com/ianlintner/swe_interview_book/pull/6"
-    },
-    {
-      "title": "Add jscheatsheet, toughest interview question, oops notes, system design notes, 270 ml projects, java for beginner",
-      "source": "github",
-      "url": "https://github.com/DSA-n-DEV/Resources-Library/pull/15"
     }
   ]
 }
