@@ -18,6 +18,7 @@ This repository contains curated FAANG-level interview problems (System Design +
 - [2026 04 18 Merge K Sorted Lists](interviews/dsa/2026-04-18-merge-k-sorted-lists.md)
 - [2026 04 22 Median Of Two Sorted Arrays](interviews/dsa/2026-04-22-median-of-two-sorted-arrays.md)
 - [2026 04 24 Top K Frequent Elements](interviews/dsa/2026-04-24-top-k-frequent-elements.md)
+- [2026 04 29 Median Of Two Sorted Arrays](interviews/dsa/2026-04-29-median-of-two-sorted-arrays.md)
 
 ## Ml System Design
 
